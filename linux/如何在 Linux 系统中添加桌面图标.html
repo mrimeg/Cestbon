@@ -1,4 +1,4 @@
-<attachment contenteditable="false" data-atts="%5B%5D" data-aid=".atts-1b07af9f-2d2a-431d-b4ac-af84b0d0a846"></attachment><h3><br></h3><h3>我们需要将编译好的应用程序添加到桌面，以便使用，就像 Windows 系统的桌面快捷方式一样。一般在 Linux 系统中，可以通过以下方法添加桌面图标。</h3><h3><br></h3><h3> 在 /usr/shared/applications/ 目录下，添加 xxx.desktop 文件（xxx为应用程序名），填写相关信息，保存即可。以 eclipse.desktop 为例说明：</h3><p>&nbsp;&nbsp;&nbsp;&nbsp;</p><pre class="ql-syntax" spellcheck="false">[DesktopEntry]
+<attachment contenteditable="false" data-atts="%5B%5D" data-aid=".atts-1b07af9f-2d2a-431d-b4ac-af84b0d0a846"></attachment><h3><br></h3><h2>我们需要将编译好的应用程序添加到桌面，以便使用，就像 Windows 系统的桌面快捷方式一样。一般在 Linux 系统中，可以通过以下方法添加桌面图标。</h2><h2><br></h2><h2> 在 /usr/shared/applications/ 目录下，添加 xxx.desktop 文件（xxx为应用程序名），填写相关信息，保存即可。以 eclipse.desktop 为例说明：</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;</p><pre class="ql-syntax" spellcheck="false">[DesktopEntry]
 Version=1.0
 Name=eclipse
 Exec=/home/root/soft/eclipse/eclipse
@@ -6,35 +6,7 @@ Icon=/home/root/soft/eclipse/icon.xpm
 Terminal=false
 Type=Application
 Categories=Development
-
-
-</pre><p>&nbsp;</p><p>&nbsp;</p><p>一般只要关注下面3个属性即可：</p><ul><li>Exec=软件执行文件的路径</li><li>Icon=快捷方式图标（如果有的话）</li><li><br></li><li>Name=快捷方式名称</li><li> 更详细的属性介绍如下：</li></ul><pre class="ql-syntax" spellcheck="false">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-
-
-//文件头
+</pre><p>&nbsp;</p><h2>&nbsp;</h2><h2>一般只要关注下面3个属性即可：</h2><h2>Exec=软件执行文件的路径</h2><h2>Icon=快捷方式图标（如果有的话）</h2><h2><br></h2><h2>Name=快捷方式名称</h2><h2> 更详细的属性介绍如下：</h2><pre class="ql-syntax" spellcheck="false">//文件头
 [DesktopEntry]
 //编码方式
 Encoding=UTF-8
@@ -59,9 +31,7 @@ X-MB-SingleInstance=true
 Hidden=false
 //菜单所属类别，可以确定该菜单的位置
 Categories=Application;Network;
-
-
-</pre><p><br></p><p><strong>Desktop Entry 文件结构</strong></p><p>Desktop Entry 文件通常以字符串”[Desktop Entry]”开始。由清单 1 可以得知，Desktop Entry 文件的内容是由若干{关键字，数值}配对的 Entry 组成的。例如，”Version”就是一个关键字，关键字”Version”对应的数值是”1.0”。Desktop Entry 文件标准定义了一系列标准关键字。标准关键字分为必选和可选两种：必选标准关键字必须在 .desktop 文件中被定义；而可选关键字则不必。以下是对重点关键字的解析。</p><p><strong>关键字”Version”：</strong>[可选] 该数值指定了当前 Desktop Entry 文件所遵循的 Desktop Entry 文件标准版本。</p><p><strong>关键字”Encoding”：</strong>[1.0 版本不推荐使用] 该数值指定了当前 Desktop Entry 文件中特定字符串所使用的编码方式。尽管Desktop Entry 文件标准 1.0 不再推荐使用该关键字，但由于历史原因该关键字仍然广泛出现在现有的 Desktop Entry 文件中。</p><p><strong>关键字”Name”</strong>：[必选]</p><p>该数值指定了相关应用程序的名称。比如在清单1中关键字”Name”的数值是”Quick Start Tour”。打开文件浏览器，进入”/usr/share/applications”目录，就可以看见”cbt.desktop”文件所定义的快捷方式 的显示样式，如图2所示。其中，快捷方式的显示名称由关键字”Name”的数值所决定，快捷方式所使用的图标由下文中将要介绍的关键字”Icon”的数值 来决定。当然，这些定义在应用程序浏览器中同样适用，请参考图3。</p><p><strong>关键字”GenericName”</strong>：[可选]</p><p>该数值指定了相关应用程序的通用名称。比如在清单1中关键字”GenericName”的数值是”User Tutorial”。打开应用程序浏览器，就可以看见字符串”User Tutorial”被显示在图标的右侧，如图3所示：</p><p><strong>关键字”Comment”：</strong>[可选]</p><p>该数值是对当前Desktop Entry的简单描述。</p><h3><strong>关键字”Type”：</strong>[必选]</h3><h3>关键字”Type”定义了Desktop Entry文件的类型。常见的”Type”数值是”Application”和”Link”。”Type = Application”表示当前Desktop Entry文件指向了一个应用程序；而”Type = Link”表示当前Desktop Entry文件指向了一个URL (Uniform Resource Locator)。</h3><p><strong>关键字”Exec”：</strong>[可选]</p><p>关键字”Exec”只有在”Type”类型是”Application”时才有意义。”Exec”的数值定义了启动指定应用程序所要执行的命令，在此命令 是可以带参数的。在本例中，关键字”Exec”的数值是字符串”gnome-open /usr/share/doc/manual/sled-gnome-cbt_en/index.html”。在shell中输入该字符串并按回车键同样 可以启动指定应用程序。</p><p><strong>关键字”URL”：</strong>[可选]</p><p>关键字”URL”只有在”Type”类型是”Link”时才有意义。”URL”的数值定义了该Desktop Entry文件指向的URL。例如：</p><pre class="ql-syntax" spellcheck="false">1
+</pre><h2><br></h2><h2><strong>Desktop Entry 文件结构</strong></h2><p>Desktop Entry 文件通常以字符串”[Desktop Entry]”开始。由清单 1 可以得知，Desktop Entry 文件的内容是由若干{关键字，数值}配对的 Entry 组成的。例如，”Version”就是一个关键字，关键字”Version”对应的数值是”1.0”。Desktop Entry 文件标准定义了一系列标准关键字。标准关键字分为必选和可选两种：必选标准关键字必须在 .desktop 文件中被定义；而可选关键字则不必。以下是对重点关键字的解析。</p><p><strong>关键字”Version”：</strong>[可选] 该数值指定了当前 Desktop Entry 文件所遵循的 Desktop Entry 文件标准版本。</p><p><strong>关键字”Encoding”：</strong>[1.0 版本不推荐使用] 该数值指定了当前 Desktop Entry 文件中特定字符串所使用的编码方式。尽管Desktop Entry 文件标准 1.0 不再推荐使用该关键字，但由于历史原因该关键字仍然广泛出现在现有的 Desktop Entry 文件中。</p><p><strong>关键字”Name”</strong>：[必选]</p><p>该数值指定了相关应用程序的名称。比如在清单1中关键字”Name”的数值是”Quick Start Tour”。打开文件浏览器，进入”/usr/share/applications”目录，就可以看见”cbt.desktop”文件所定义的快捷方式 的显示样式，如图2所示。其中，快捷方式的显示名称由关键字”Name”的数值所决定，快捷方式所使用的图标由下文中将要介绍的关键字”Icon”的数值 来决定。当然，这些定义在应用程序浏览器中同样适用，请参考图3。</p><p><strong>关键字”GenericName”</strong>：[可选]</p><p>该数值指定了相关应用程序的通用名称。比如在清单1中关键字”GenericName”的数值是”User Tutorial”。打开应用程序浏览器，就可以看见字符串”User Tutorial”被显示在图标的右侧，如图3所示：</p><p><strong>关键字”Comment”：</strong>[可选]</p><p>该数值是对当前Desktop Entry的简单描述。</p><h3><strong>关键字”Type”：</strong>[必选]</h3><h3>关键字”Type”定义了Desktop Entry文件的类型。常见的”Type”数值是”Application”和”Link”。”Type = Application”表示当前Desktop Entry文件指向了一个应用程序；而”Type = Link”表示当前Desktop Entry文件指向了一个URL (Uniform Resource Locator)。</h3><p><strong>关键字”Exec”：</strong>[可选]</p><p>关键字”Exec”只有在”Type”类型是”Application”时才有意义。”Exec”的数值定义了启动指定应用程序所要执行的命令，在此命令 是可以带参数的。在本例中，关键字”Exec”的数值是字符串”gnome-open /usr/share/doc/manual/sled-gnome-cbt_en/index.html”。在shell中输入该字符串并按回车键同样 可以启动指定应用程序。</p><p><strong>关键字”URL”：</strong>[可选]</p><p>关键字”URL”只有在”Type”类型是”Link”时才有意义。”URL”的数值定义了该Desktop Entry文件指向的URL。例如：</p><pre class="ql-syntax" spellcheck="false">1
 2
 
 
